@@ -1,0 +1,44 @@
+# Golden Hour
+
+A small phone-friendly web app that tells you when golden hour is where you are.
+
+**Live:** https://briangooding.github.io/golden-hour/
+
+Moved here from `bg_github/golden-hour/` in November 2026. The old address forwards to this one, and Home Screen apps installed from it keep working.
+
+- Uses your phone's location, or a city / coordinates you pick
+- Countdown to the next golden hour, or how much is left if it's happening now
+- **Sun right now**: a live map of where you are with the sun's compass direction, sunrise/sunset directions and which way shadows fall, plus a gauge of how high the sun is (golden-hour band marked)
+- Today's sunrise, sunset, golden hour and blue hour, with a day timeline; pick any date to plan ahead
+- **Remind me 30 min before**: one tap adds the next golden hour to your calendar with an alert 30 minutes ahead
+- More reminders:
+  - **Add to calendar** downloads an event (optionally the next 7 days) with an alert 0–60 min before.
+    This works even when the app is closed.
+  - **Alert in this app** rings with a notification while the app is open.
+- **iPhone app:** open the Live link in Safari, tap Share, then **Add to Home Screen**. It opens full
+  screen with its own icon, keeps working without signal (except map tiles), and Safari shows a
+  one-time tip explaining this
+
+Golden hour = from the sun 6° above the horizon to sunset (sunrise to 6° up in the morning);
+blue hour = sun 4°–6° below the horizon.
+Sun positions use Jean Meeus's algorithms (`sun.js`) and match the PyEphem reference
+library to within 5 seconds and 0.05° of direction. Map: Leaflet (bundled in `vendor/`)
+with OpenStreetMap tiles.
+
+## Share it
+
+Send people the link, or show them a QR code:
+
+- [`share/golden-hour-card.png`](share/golden-hour-card.png): printable card with the QR code and install steps
+- [`share/golden-hour-qr.png`](share/golden-hour-qr.png): QR code on its own (with the app icon)
+- [`share/golden-hour-qr.svg`](share/golden-hour-qr.svg): QR code as a vector, for large prints
+
+All three open https://briangooding.github.io/golden-hour/
+
+## Run locally
+
+```sh
+python3 -m http.server 8000   # from this folder, then open http://localhost:8000
+```
+
+Location access needs `https://` or `localhost`.
